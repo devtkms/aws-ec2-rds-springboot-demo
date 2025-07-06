@@ -78,14 +78,6 @@ This is a simple demo project using Spring Boot with PostgreSQL on AWS EC2 + RDS
 | Key Pair       | aws-ec2-rds-springboot-demo-key.pem    |
 | Elastic IP     | Assigned     |
 
-### Deploy Spring Boot App to EC2
-
-```bash
-scp -i aws-ec2-rds-springboot-demo.pem \
-aws-ec2-rds-springboot-demo-0.0.1-SNAPSHOT.jar \
-ec2-user@57.182.156.47:/home/ec2-user/
-```
-
 ---
 
 ## 4. RDS Setup
@@ -215,11 +207,13 @@ curl -X POST http://<your-elastic-ip>:8080/users \
   -H "Content-Type: application/json" \
   -d '{"name": "devtkms", "email": "devtkms@example.com"}'
 ```
+<img width="511" alt="スクリーンショット 2025-07-06 19 37 02" src="https://github.com/user-attachments/assets/bb6b584e-4978-485a-a84e-209fedd1c33a" />
 
 ### Get All Users (GET /users)
 ```bash
 curl http://<your-elastic-ip>:8080/users
 ```
+<img width="511" alt="スクリーンショット 2025-07-06 19 37 13" src="https://github.com/user-attachments/assets/ff9908a9-70c5-4e9a-b76a-f35b752262d1" />
 
 ## 9. Confirm the Data in RDS
 
@@ -238,6 +232,7 @@ SELECT * FROM user_entity;
 ```
 
 ### Expected Output
+<img width="328" alt="スクリーンショット 2025-07-06 19 37 53" src="https://github.com/user-attachments/assets/71e862b4-3a74-4751-a230-425bc9c1e956" />
 
 In this demo, id = 7 is shown because several test inserts were made before this example.
 
